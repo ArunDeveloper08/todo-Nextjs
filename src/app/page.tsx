@@ -1,17 +1,19 @@
 'use client'
 import { useState } from "react";
 import { TodoObject } from "./models/model";
+// import {v4 as uuid} from 'uuid'
 
 export default function Home() {
   const [data , setData]=useState<string>("");
   const [todos,setTodos] = useState<TodoObject[]>([]);
 
   const addTodo=()=>{
-setTodos([...todos,{id:1 , value:data ,done:false}]);
+setTodos([...todos,{id:todos.length, value:data ,done:false}]);
 setData("");
   }
   const removeTodo=(id:Number)=>{
-  setTodos(  todos.map(todo=>todo.id === id ? { ...todo, done:true} : todo ));
+    console.log(id)
+  setTodos(todos.map(todo=>todo.id === id ? { ...todo, done:true} : todo ));
   }
 
   return (
@@ -29,6 +31,7 @@ setData("");
     <ul className="mt-5">
       {
         todos?.map((todo , index:Number)=>{
+          // console.log("todo",todo)
           return(
             <>
              <li className={`text-2xl ml-5 cursor-pointer ${todo.done ? 'line-through' :'no-underline'}`} onClick={()=>removeTodo(index)}>{todo.value}</li>
