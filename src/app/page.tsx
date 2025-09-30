@@ -24,7 +24,7 @@ setData("");
   <main className="p-4">
     <input  type="text" className="p-2 rounded mr-5 text-slate-900" placeholder="enter a new todo" 
     onChange={(e)=> setData(e.target.value)} value={data}/>
-    <button className="border-black border-[1px] rounded px-4 py-1 bg-green-400 "
+    <button className="border-black border-[1px] rounded px-4 py-1 bg-red-400 "
     onClick={()=>addTodo()}
     >Add Todo</button>
 
